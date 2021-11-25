@@ -1,0 +1,23 @@
+//
+//.admin-panel {
+//  position: relative;
+//  top: 0;
+//  left: 0;
+//  right: 0;
+//  z-index: 999;
+//  background-color: white;
+//  min-height: 100vh;
+//  padding: 10px 10px 0 10px;
+//}
+
+
+#v-pills-tab{
+  display: flex;
+  flex-direction: column;
+  //position: relative;
+  //margin-left: 50px;
+}
+
+.tab-content {
+  padding: 0 0 0 20px;
+}

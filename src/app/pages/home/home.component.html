@@ -1,0 +1,256 @@
+<div class="container-sm">
+  <div id="carouselDark" class="carousel carousel-dark slide background mt-3" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <div class="cardContainer">
+          <a [routerLink]="[ '/menu/smartphones/PocoF3' ]" routerLinkActive="active">
+            <img src="/./assets/img/poco-removebg-preview.png" class="carouselPhoto" alt="...">
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <div class="cardContainer">
+          <a [routerLink]="[ '/menu/audio/headphonesX' ]" routerLinkActive="active">
+            <img src="/./assets/img/headphones-removebg-preview.png" class="carouselPhoto" alt="...">
+          </a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="cardContainer">
+          <a [routerLink]="[ '/' ]" routerLinkActive="active"><img src="/./assets/img/123_11_29_1.jpg" class="carouselPhoto" alt="...">
+          </a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+</div>
+
+<ul class="nav nav-tabs headCont" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation" *ngFor="let c of userCategories">
+    <button class="nav-link" id="{{ c.name }}" (click)="add(c.name)" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{ c.name }}
+    </button>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div id="topSales" class="carousel slide background mx-5 mt-3" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="cardContainer">
+            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 0 : 3" >
+              <img [src]="p.imagePath" class="cardImage" alt="...">
+              <div class="card-body cardBody">
+                <h5 class="card-title">{{ p.name }}</h5>
+                <p class="card-title">{{ p.price }} <span>UAH</span> </p>
+                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
+                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="cardContainer" >
+            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 3 : 6">
+              <img [src]="p.imagePath" class="cardImage" alt="...">
+              <div class="card-body cardBody">
+                <h5 class="card-title">{{ p.name }}</h5>
+                <p class="card-title">{{ p.price }} <span>UAH</span> </p>
+                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
+                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#topSales"
+                data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#topSales"
+                data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div id="topSales2" class="carousel slide background mx-5 mt-3" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="cardContainer" >
+            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 6 : 9" >
+              <img [src]="p.imagePath" class="cardImage" alt="...">
+              <div class="card-body cardBody">
+                <h5 class="card-title">{{ p.name }} </h5>
+                <p class="card-title">{{ p.price }} <span>UAH</span> </p>
+                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
+                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="cardContainer" >
+            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 9 : 12">
+              <img [src]="p.imagePath" class="cardImage" alt="...">
+              <div class="card-body cardBody">
+                <h5 class="card-title">{{ p.name }}</h5>
+                <p class="card-title">{{ p.price }} <span>UAH</span> </p>
+                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
+                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#topSales2"
+                data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#topSales2"
+                data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container-sm mt-5">
+  <div class="mobilePromotion">
+    <a  [routerLink]= "[ '/menu/audio']" routerLinkActive="active">
+      <div class="promoBlock">
+        <img src="../../../assets/img/promotion-2.jpg" class="effect" alt="...">
+      </div>
+    </a>
+    <a  [routerLink]= "[ '/menu/tablets']" routerLinkActive="active">
+      <div class="promoBlock">
+        <img src="../../../assets/img/promotion-3.jpg" class="effect" alt="...">
+      </div>
+    </a>
+    <a  [routerLink]= "[ '/menu/computers']" routerLinkActive="active">
+      <div class="promoBlock">
+        <img src="../../../assets/img/promotion-4.jpg" class="effect" alt="...">
+      </div>
+    </a>
+  </div>
+</div>
+
+<span class="spanAlign">
+  Новини
+</span>
+
+<div class="container-md mb-5 mt-3 background">
+  <div class="cardContainer">
+    <div class="col-6 col-sm-3 card cardStyle" style="width: 18rem;">
+      <div class="card-body">
+        <img src="./assets/img/XiaomiNews2.png" class="w-100 effectPhoto" alt="">
+        <h5 class="card-title">Xiaomi відмінила покращену MIUI 12.5</h5>
+        <p>Для бестселлера Poco F1 і Xiaomi Mi A3</p>
+        <a href="https://www.ixbt.com/news/2021/11/16/redmi-xiaomi-miui-12-5-poco-f1-xiaomi-mi-a3.html"
+           class="card-link link-info effectPhoto">Читати</a>
+      </div>
+    </div>
+    <div class=".col-6 col-sm-3 card cardStyle" style="width: 18rem;">
+      <div class="card-body">
+        <img src="./assets/img/xiaomiNews1.jpg" class="w-100 effectPhoto" alt="">
+        <h5 class="card-title">Xiaomi 12 з новим дизайном поступив в виробництво</h5>
+        <a
+          href="https://www.ixbt.com/news/2021/11/18/xiaomi-12-s-sovershenno-novym-dizajnom-zapushen-v-massovoe-proizvodstvo.html"
+          class="card-link link-info effectPhoto">Читати</a>
+      </div>
+    </div>
+    <div class="col-6 col-sm-3 card cardStyle" style="width: 18rem;">
+      <div class="card-body">
+        <img src="./assets/img/news%23.jpg" class="w-100 effectPhoto" alt="">
+        <h5 class="card-title">Xiaomi заснувала другу автомобільну компанію</h5>
+        <a href="https://www.ixbt.com/news/2021/11/19/xiaomi-osnovala-vtoruju-avtomobilnuju-kompaniju.html"
+           class="card-link link-info effectPhoto">Читати</a>
+      </div>
+    </div>
+    <div class="col-6 col-sm-3 card cardStyle" style="width: 18rem;">
+      <div class="card-body">
+        <img src="./assets/img/news4.jpg" class="w-100 effectPhoto" alt="">
+        <h5 class="card-title">50 + 48 + 48 + 48 Мп. Подробности о камерах</h5>
+        <a href="https://www.ixbt.com/news/2021/11/16/50-48-48-48-xiaomi-12-ultra-xiaomi-12-ultra-enhanced-edition.html"
+           class="card-link link-info effectPhoto">Читати</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="mx-5 mt-5">
+  <h2 class="text-center">Грушка - новий український стартап продажі оригінальної техніки Xiaomi</h2>
+  <div>
+    <p>
+      Ми розпочали свій шлях на українському ринку ще в далекому 2014-му році. За такий тривалий час нам вдалось
+      сформувати команду професійних продавців-консультантів та висококласних сервісних інженерів. А також круту
+      ком’юніті постійних клієнтів та партнерів.
+    </p>
+    <p>
+      Ми цінуємо вашу довіру, тому завжди готові допомогти, надати консультацію чи пораду щодо покупки. Клієнти — це
+      перш за все наші друзі. І, як відомо, для друзів лише все найкраще!
+    </p>
+  </div>
+  <br>
+  <h4>Чому саме Грушка?</h4>
+  <p>
+    Купувати техніку та аксесуари в Ябко — максимально просто, вигідно, зручно та безпечно. У нас тисячі задоволених
+    клієнтів по всій Україні та безліч відгуків на різних платформах. Ми гарантуємо висококласний рівень обслуговування
+    та лише позитивні емоції від покупок.
+  </p>
+  <p>
+    Усе, що ви бачите на полицях наших магазинів та у каталозі сайту — гарантовано 100% оригінальний якісний продукт
+    Xiaomi. Якщо вам треба придбати, обміняти, відремонтувати, доповнити аксесуарами будь-що із техніки Xiaomi — вам до
+    нас!
+  </p>
+  <p>
+    Грушка — це ідеальне місце, де ви завжди можете придбати:
+  </p>
+  <ul class="mx-5">
+    <li> Флагманські смартфони Xiaomi.</li>
+    <li> Професійні планшети Xiaomi.</li>
+    <li> Потужні ноутбуки MiPad.</li>
+    <li> Безпровідні навушники.</li>
+    <li> Оригінальні аксесуари від Xiaomi.</li>
+  </ul>
+  <h4>
+    Запорука безпеки — Гарантія від Грушка
+  </h4>
+  <p>
+    На весь асортимент техніки Apple ми надаємо гарантію від виробника та від магазину Ябко, яка розповсюджується як на
+    нові, так і на вживані пристрої. Для тих, хто вважає, що обмежувати себе в якісному сервісі не варто — ми можемо
+    розширити будь-яку гарантію, а також додати до неї приємні переваги та бонуси.
+  </p>
+  <p>
+    Флагманські смартфони від Грушка добре відомі своїми розкішними безрамковими дисплеями, які так ваблять яскравими
+    кольорами. Та жоден дисплей не застрахований від нещасного випадку — тому ми рекомендуємо заздалегідь подбати про
+    них та придбати “Гарантію на розбиття”.
+  </p>
+  <p>
+    Це не просто допоможе продовжити життя пристрою та повернути дисплей у робочий стан, якщо ви ненароком пошкодили або
+    повністю розбили його. Ми у найкоротші терміни проводимо заміну екрану на оригінальний новий варіант, який знову
+    тішитиме вас яскравим та деталізованим зображенням. Така послуга — це ще й гарантія вашого спокою, комфорту і
+    безпеки. Більше жодних турбот, адже команда Ябко тримає все під контролем.
+  </p>
+</section>
+
+
+
+

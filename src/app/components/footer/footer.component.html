@@ -1,0 +1,57 @@
+<div class="container">
+  <footer class="footContainer row row-cols-5 py-5 my-5 border-top">
+    <div class="col">
+      <a href="" class="d-flex align-items-lg-center mb-3 link-dark text-decoration-none">
+        <img src="../../../assets/img/logo-grusha.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      </a>
+      <p class="text-muted">
+        © 2021
+      </p>
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col footerCol">
+      <h5>Продукція</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a class="nav-link p-0 text-muted" [routerLink]= "[ '' ]" routerLinkActive="active">Головна</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link p-0 text-muted" [routerLink]= "[ '/menu/smartphones' ]" routerLinkActive="active">Смартфони</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link p-0 text-muted" [routerLink]= "[ '/menu/tablets' ]" routerLinkActive="active">Планшети</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link p-0 text-muted" [routerLink]= "[ '/menu/gadgets' ]" routerLinkActive="active">Гаджети</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link p-0 text-muted" [routerLink]= "[ '/menu/accessories' ]" routerLinkActive="active">Аксесуари</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col footerCol">
+      <h5>Інформація</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a class="nav-link p-0 text-muted" [routerLink]= "[ '/payment' ]" routerLinkActive="active">Оплата</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link p-0 text-muted" [routerLink]= "[ '/contacts' ]" routerLinkActive="active">Контакти</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footerColumnMobile">
+      <h5>Інформація</h5>
+      <li class="nav-item mb-2">
+        <a class="nav-link p-0 text-muted" [routerLink]= "[ '/contacts' ]" routerLinkActive="active">Контакти</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link p-0 text-muted" [routerLink]= "[ '' ]" routerLinkActive="active">Головна</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link p-0 text-muted" [routerLink]= "[ '/payment' ]" routerLinkActive="active">Оплата</a>
+      </li>
+    </div>
+  </footer>
+</div>

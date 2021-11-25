@@ -1,0 +1,92 @@
+.headCont{
+  display: flex;
+  justify-content: center;
+  margin: 15px 15px 0 15px;
+  border-radius: 3px;
+  box-shadow: 0 4px 20px rgba(12, 12, 12, 0.555);
+}
+
+.carousel-item{
+  color: #777777;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.carouselPhoto{
+  max-width: 100%;
+}
+
+
+.effect{
+  border: 2px solid rgba(192,195,191,0.65);
+  border-radius: 10px;
+  -webkit-filter: brightness(80%);
+}
+
+.effect:hover{
+  border: 3px solid rgba(108,110,107,0.87);
+  transform: scale(1.1,1.1);
+  transition: all .2s;
+ border-radius: 0;
+  -webkit-filter: brightness(100%);
+}
+
+.spanAlign{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 25px 20px;
+  font-size: 25px;
+}
+
+.effectPhoto{
+  border-radius: 5px !important;
+}
+
+.effectPhoto:hover{
+  transition: all .2s;
+  transform: scale(1.1);
+  overflow: hidden;
+}
+.mobilePromotion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.promoBlock{
+  width: 600px;
+  height: 266px;
+  margin: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 500px;
+}
+
+.promoBlock img{
+  max-width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.cardStyle{
+  margin: 3px 5px 3px 5px;
+  border-radius: 8px;
+}
+
+
+.card-link{
+  display: none;
+  text-decoration: none;
+}
+
+
+
+
+h5{
+  margin-top: 5px;
+}
+

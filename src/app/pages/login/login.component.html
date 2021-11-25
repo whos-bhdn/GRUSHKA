@@ -1,0 +1,39 @@
+<div class="container-md">
+  <div class="row" *ngIf="!isSignUp">
+    <h3 class="mx-auto">Please login</h3>
+    <hr>
+    <div class="col-6 m-auto">
+      <form [formGroup]="loginForm" (ngSubmit)="loginM()">
+        <div class="mb-3">
+          <label for="inputEmail" class="form-label" >Email address</label>
+          <input formControlName="email" type="email" class="form-control" id="inputEmail">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input formControlName="password" type="password" class="form-control" id="inputPassword">
+        </div>
+        <button type="submit" class="btn btn-outline-success mb-3">Login</button>
+      </form>
+      <a (click)="signUpFormRequared()">Sign Up</a>
+    </div>
+  </div>
+  <div class="row" *ngIf="isSignUp">
+    <h3 class="mx-auto">Please register</h3>
+    <hr>
+    <div class="col-6 m-auto">
+      <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <div class="mb-3">
+          <label for="inputEmail" class="form-label" >Email address</label>
+          <input formControlName="email" type="email" class="form-control" id="Email">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input formControlName="password" type="password" class="form-control" id="Password">
+        </div>
+        <button type="submit" class="btn btn-outline-success mb-3">Register</button>
+      </form>
+      <a (click)="signUpFormRequared()">I already have an account</a>
+    </div>
+  </div>
+</div>
+

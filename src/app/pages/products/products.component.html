@@ -1,0 +1,29 @@
+<section class="home-products">
+  <div class="container-sm">
+    <hr>
+    <h3 class="all-products">Всі товари</h3>
+    <div class="row">
+      <div class="cardContainer">
+        <div class="card my-5" style="width: 18rem;" *ngFor="let p of newSortArr">
+          <img [src]="p.imagePath" class="cardImage" alt="...">
+          <div class="card-body cardBody">
+            <h5 class="card-title">{{ p.name }}</h5>
+            <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
+            <div class="price">
+              <h4>{{ p.price * p.count }} <span>грн</span></h4>
+              <span>
+              <button type="button" class="btn btn-light" (click)="changeCount(p, false)">-</button>
+              <input type="text" readonly [value]="p.count" style="width: 30px">
+              <button type="button" class="btn btn-light" (click)="changeCount(p, true)">+</button>
+              </span>
+            </div>
+              <a class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>>
+</section>
+<hr>
+

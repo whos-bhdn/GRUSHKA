@@ -1,0 +1,81 @@
+<div class="input-group mb-3">
+  <input type="text" class="form-control">
+  <button data-bs-toggle="modal" data-bs-target="#categoryModal" class="btn btn-outline-secondary"
+          type="button">Create
+  </button>
+</div>
+<hr>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Category</th>
+    <th scope="col">Subcategory Name</th>
+    <th scope="col">Path</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let subcategory of adminSubcategories; index as i">
+    <td>{{ i + 1 }}</td>
+    <td>{{ subcategory.category.name }}</td>
+    <td>{{ subcategory.name }}</td>
+    <td>{{ subcategory.path }}</td>
+    <td>
+      <div class="actions">
+        <button
+          (click)="editSubCategory(subcategory)"
+          data-bs-toggle="modal"
+          data-bs-target="#categoryModal"
+          class="btn btn-outline-dark mx-3"
+        >edit
+        </button>
+        <button
+          (click)="deleteSubCategory(subcategory)"
+          class="btn btn-outline-dark"
+        >delete
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="subCategoryForm" class="modal-content" (ngSubmit)="saveSubCategory()">
+      <div class="modal-header">
+        <h5 class="modal-title" id="categoryModalLabel">Add category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <div class="mb-1 d-flex justify-content-between align-items-center">
+            <label for="category" class="form-label label">Category</label>
+            <div class="w-100 ms-3" id="category">
+              <select formControlName="category" (change)="changeCategory()" class="form-select" aria-label="Default select example">
+                <option [ngValue]="category"  *ngFor="let category of adminCategories">{{ category.name }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="path" class="form-label">Path</label>
+          <input type="text" class="form-control" id="path" formControlName="path">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" #close>Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="subCategoryForm.invalid" >Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

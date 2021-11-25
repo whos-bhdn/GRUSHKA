@@ -1,0 +1,69 @@
+<div class="input-group mb-3 col-xl-10">
+  <input type="text" class="form-control">
+  <button data-bs-toggle="modal" data-bs-target="#categoryModal" class="btn btn-outline-secondary"
+          type="button">Create
+  </button>
+</div>
+<hr>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Path</th>
+    <th scope="col">Name</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let category of adminCategories; index as i">
+    <td>{{ i + 1 }}</td>
+    <td>{{ category.path }}</td>
+    <td>{{ category.name }}</td>
+    <td>
+      <div class="actions">
+        <button
+          (click)="editCategory(category)"
+          data-bs-toggle="modal"
+          data-bs-target="#categoryModal"
+          class="btn btn-outline-dark mx-3"
+        >edit
+        </button>
+        <button
+          (click)="deleteCategory(category)"
+          class="btn btn-outline-dark"
+        >delete
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="categoryForm" class="modal-content" (ngSubmit)="saveCategory()">
+      <div class="modal-header">
+        <h5 class="modal-title" id="categoryModalLabel">Add category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <label for="path" class="form-label">Path</label>
+          <input type="text" class="form-control" id="path" formControlName="path">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" #close>Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="categoryForm.invalid" >Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

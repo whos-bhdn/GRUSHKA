@@ -1,0 +1,29 @@
+--STRUCTURE--
+
+app/
+
+    components
+              /header.component
+              /footer.component
+
+    pages
+              /home.component
+              /products.component
+              /products.details.component
+              /basket.component
+              /payment.component
+              /contacts.component
+
+    /admin.component
+              /admin-category
+              /admin-products
+              /admin-orders
+
+    shared
+              interfaces
+              models
+              pipes
+              directives
+              guards
+              services
+              styles
