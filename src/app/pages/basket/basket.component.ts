@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import {IProductResponse} from "../../shared/interfaces/product/product.intarface";
 import {User} from "../../shared/interfaces/user/user.iterface";
+import {ToastrService} from "ngx-toastr"
 
 @Component({
   selector: 'app-basket',
@@ -20,6 +21,7 @@ export class BasketComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     private fb: FormBuilder,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -81,6 +83,7 @@ export class BasketComponent implements OnInit {
       this.basket.splice(index, 1);
       localStorage.setItem('basket', JSON.stringify(this.basket));
       this.orderService.changeBasket.next(true)
+      this.toastr.info("Basket is empty")
     }
   }
 

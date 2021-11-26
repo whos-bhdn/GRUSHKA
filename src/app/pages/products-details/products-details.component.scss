@@ -2,6 +2,55 @@
   border-top: 1px solid darkgrey;
 }
 
+.leftContainer{
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer{
+  max-width: 100%;
+  height: auto;
+  border: .5px solid gray;
+  border-radius: 10px;
+}
+
+.imageContainer img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.headProd{
+  margin-top: 5px;
+}
+
+.card-prod-opt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.promotionText{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.paymentRef{
+  border: 1px solid #0e0e0e;
+  margin: 10px 5px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.paymentRef a{
+  text-decoration: none;
+  color: black
+}
+
 .prod-color{
   width: 29px;
   height: 29px;
@@ -13,34 +62,21 @@
   position: relative;
   cursor: pointer;
 }
-#payt1{
-  display: none;
+.form-switch .form-check-input {
+  height: 24px;
+  width: 48px;
 }
-
-[for="payt1"]{
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 10px;
-  border-radius: 3px;
-  background: rgb(71, 71, 71);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.2);
-  cursor: pointer;
+.form-switch .form-check-input:focus {
+  border-color: rgba(0, 0, 0, 0.25);
+  outline: 0;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.25)'/></svg>");
 }
-
-[for="payt1"]:before {
-  content: "";
-  position: absolute;
-  left: -8px; top: -3px;
-  display: block;
-  width: 16px;
-  height: 16px;
-  background: whitesmoke no-repeat 50% 50%;
-  transition: .1s;
-}
-
-#payt1:checked ~ [for="payt1"]:before {
-  left: 32px;
+.form-switch .form-check-input:checked {
+  background-color: #30D158;
+  border-color: #30D158;
+  border: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
 }
 
 .notd{
@@ -50,4 +86,14 @@
   margin-top: 15px;
   padding-top: 15px;
   border-top: 1px  solid #888888;
+}
+
+
+.descriptionBlock{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3;
 }

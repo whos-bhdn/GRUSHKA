@@ -6,6 +6,7 @@ import {CategoryService} from "../../shared/services/category/category.service";
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 import {OrderService} from "../../shared/services/order/order.service";
+import {ToastrService} from "ngx-toastr"
 
 @Component({
   selector: 'app-products',
@@ -21,6 +22,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public sortBySub: IProductResponse[] = [];
   public currentCategoryName!: string;
   public currentSubCategoryName!: string;
+  public header!: string;
 
 
 
@@ -29,6 +31,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     private categoryService: CategoryService,
     private router: Router,
     private orderService: OrderService,
+    private toastr: ToastrService,
     private activatedRoute: ActivatedRoute) {
     this.eventsSubscriptions = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -65,7 +68,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
         this.userProducts = data as IProductResponse[];
         this.newSortArr = [];
         this.userProducts.forEach(e => {
-          if (e.category.path === name || e.subcategory?.path === name) this.newSortArr.push(e);
+          if (e.category.path === name || e.subcategory?.path === name) {
+            this.newSortArr.push(e)
+            if (e.subcategory != null && e.subcategory.path === name){
+              this.header = e.subcategory.path;
+            } else {
+              this.header = e.category.path;
+            }
+          };
         })
       }, err => {
         console.log('loadProducts error', err);
@@ -101,6 +111,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     localStorage.setItem('basket', JSON.stringify(basket));
     product.count = 1;
     this.orderService.changeBasket.next(true);
+    this.toastr.success('Successfully added product to basket')
   }
 
 
