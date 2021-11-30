@@ -67,6 +67,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.productService.getAllFB().subscribe(data => {
         this.userProducts = data as IProductResponse[];
         this.newSortArr = [];
+      // console.log(this.activatedRoute);
         this.userProducts.forEach(e => {
           if (e.category.path === name || e.subcategory?.path === name) {
             this.newSortArr.push(e)

@@ -2,10 +2,9 @@
   border-top: 1px solid darkgrey;
 }
 
-.leftContainer{
-  margin-right: 30px;
+.containerI{
   display: flex;
-  flex-direction: column;
+  margin-top: 5px;
 }
 
 .imageContainer{
@@ -38,12 +37,13 @@
   align-items: center;
 }
 
-.paymentRef{
-  border: 1px solid #0e0e0e;
-  margin: 10px 5px;
+.paymentIconBlock{
   display: flex;
-  align-items: baseline;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 10px 0px 10px;
+  align-items: center;
+  text-decoration: none;
 }
 
 .paymentRef a{

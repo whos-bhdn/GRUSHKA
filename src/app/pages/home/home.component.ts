@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
   public audioArr: IProductResponse[] = [];
   public tabletsArr: IProductResponse[] = [];
   public btname: IProductResponse[] = [];
+  public uid!: string;
+
 
   constructor(
     private productService: ProductService,
@@ -36,7 +38,6 @@ export class HomeComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private orderService: OrderService,
     private toastr: ToastrService
-
   ) {
   }
 
@@ -48,30 +49,32 @@ export class HomeComponent implements OnInit {
   loadProducts(): void {
     this.productService.getAllFB().subscribe(data => {
 
-      this.userProducts = data as IProductResponse[];
-      this.btname = this.userProducts.filter(e=>e.category.name === 'Accessories')
+        this.userProducts = data as IProductResponse[];
+        this.btname = this.userProducts.filter(e => e.category.name === 'Accessories')
 
-      this.newSortArr = [];
-      this.userProducts.forEach(e => {
+        // console.log(data)
 
-         if (e.category.path === 'audio') {
-          this.audioArr.push(e);
-        } else if (e.category.path === 'accessories') {
-          this.accessoriesArr.push(e);
-        } else if (e.category.path === 'smartphones') {
-          this.smartphonesArr.push(e)
-        } else if (e.category.path === 'computers') {
-          this.computersArr.push(e)
-        } else if (e.category.path === 'tablets') {
-          this.tabletsArr.push(e)
-        }
-      })
+        this.newSortArr = [];
+        this.userProducts.forEach(e => {
+
+          // if (e.name === `Poco F3`) this.uid = e.id;
+          if (e.category.path === 'audio') {
+            this.audioArr.push(e);
+          } else if (e.category.path === 'accessories') {
+            this.accessoriesArr.push(e);
+          } else if (e.category.path === 'smartphones') {
+            this.smartphonesArr.push(e)
+          } else if (e.category.path === 'computers') {
+            this.computersArr.push(e)
+          } else if (e.category.path === 'tablets') {
+            this.tabletsArr.push(e)
+          }
+        })
       }, err => {
         console.log('loadProducts error', err);
       }
     )
   }
-
 
 
   loadCategory(): void {
@@ -85,17 +88,15 @@ export class HomeComponent implements OnInit {
 
   addToBasket(product: IProductResponse): void {
     let basket: IProductResponse[] = [];
-    if (localStorage.length > 0 && localStorage.getItem('basket')){
+    if (localStorage.length > 0 && localStorage.getItem('basket')) {
       basket = JSON.parse(localStorage.getItem('basket') as string);
-      if (basket.some(p => p.id === product.id)){
+      if (basket.some(p => p.id === product.id)) {
         const index = basket.findIndex(p => p.id === product.id);
         basket[index].count += product.count;
-      }
-      else {
+      } else {
         basket.push(product);
       }
-    }
-    else {
+    } else {
       basket.push(product);
     }
     localStorage.setItem('basket', JSON.stringify(basket));
@@ -104,10 +105,10 @@ export class HomeComponent implements OnInit {
     this.toastr.success('Product successfully added to basket');
   }
 
-  add(a: string): void{
+  add(a: string): void {
     this.btname = []
     console.log(this.btname)
-    this.btname = this.userProducts.filter(e=>e.category.name === a)
+    this.btname = this.userProducts.filter(e => e.category.name === a)
   }
 
 }

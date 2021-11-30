@@ -1,5 +1,5 @@
 <div class="container-sm">
-  <div id="carouselDark" class="carousel carousel-dark slide background mt-3" data-bs-ride="carousel">
+  <div id="carouselDark" class="carousel carousel-dark slide mt-3" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="0" class="active"
               aria-current="true" aria-label="Slide 1"></button>
@@ -9,21 +9,21 @@
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="10000">
         <div class="cardContainer">
-          <a [routerLink]="[ '/menu/smartphones/PocoF3' ]" routerLinkActive="active">
+          <a [routerLink]="[ '/menu/smartphones/PocoF3',]" routerLinkActive="active">
             <img src="/./assets/img/poco-removebg-preview.png" class="carouselPhoto" alt="...">
           </a>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
         <div class="cardContainer">
-          <a [routerLink]="[ '/menu/audio/headphonesX' ]" routerLinkActive="active">
+          <a [routerLink]="[ '/menu/audio/' ]" routerLinkActive="active">
             <img src="/./assets/img/headphones-removebg-preview.png" class="carouselPhoto" alt="...">
           </a>
         </div>
       </div>
       <div class="carousel-item">
         <div class="cardContainer">
-          <a [routerLink]="[ '/' ]" routerLinkActive="active"><img src="/./assets/img/123_11_29_1.jpg" class="carouselPhoto" alt="...">
+          <a [routerLink]="[ '/menu/smartphones/' ]" routerLinkActive="active"><img src="/./assets/img/123_11_29_1.jpg" class="carouselPhoto" alt="...">
           </a>
         </div>
       </div>
@@ -59,6 +59,7 @@
                 <p class="card-title">{{ p.price }} <span>UAH</span> </p>
                 <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
                 <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
               </div>
             </div>
           </div>
@@ -72,6 +73,7 @@
                 <p class="card-title">{{ p.price }} <span>UAH</span> </p>
                 <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
                 <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
               </div>
             </div>
           </div>
@@ -99,6 +101,7 @@
                 <p class="card-title">{{ p.price }} <span>UAH</span> </p>
                 <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
                 <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
               </div>
             </div>
           </div>
@@ -112,6 +115,7 @@
                 <p class="card-title">{{ p.price }} <span>UAH</span> </p>
                 <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
                 <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
               </div>
             </div>
           </div>
@@ -132,7 +136,7 @@
   </div>
 </div>
 
-<div class="containerP mt-5">
+<div class="container-sm mt-5">
   <div class="mobilePromotion">
     <a  [routerLink]= "[ '/menu/audio']" routerLinkActive="active">
       <div class="promoBlock">

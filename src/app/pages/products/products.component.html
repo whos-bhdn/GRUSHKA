@@ -17,13 +17,15 @@
               <button type="button" class="btn btn-light" (click)="changeCount(p, true)">+</button>
               </span>
             </div>
+            <div class="buttonsP">
+              <a class="btn btn-dark" [routerLink]="[p.id]">Детальніше</a>
               <a class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
             </div>
+            </div>
           </div>
-
         </div>
       </div>
-    </div>>
+    </div>
 </section>
 <hr>
 

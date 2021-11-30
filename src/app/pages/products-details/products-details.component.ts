@@ -5,6 +5,7 @@ import { SubcategoryService } from 'src/app/shared/services/subcategory/subcateg
 import {IProductResponse} from "../../shared/interfaces/product/product.intarface";
 import { ToastrService } from "ngx-toastr";
 import { OrderService } from "../../shared/services/order/order.service";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products-details',
@@ -14,6 +15,7 @@ import { OrderService } from "../../shared/services/order/order.service";
 export class ProductsDetailsComponent implements OnInit {
 
   public userProducts: IProductResponse[] = [];
+  public  obj!: any
   public header!: string;
   public name!: string;
 
@@ -23,6 +25,7 @@ export class ProductsDetailsComponent implements OnInit {
     private productService: ProductService,
     private toastr: ToastrService,
     private orderService: OrderService,
+    private activatedRoute: ActivatedRoute
   ) {  }
 
   ngOnInit(): void {
@@ -32,6 +35,15 @@ export class ProductsDetailsComponent implements OnInit {
   loadProducts(): void {
       this.productService.getAllFB().subscribe(data => {
         this.userProducts = data as IProductResponse[];
+        this.userProducts.filter(e=>{
+          if( e.id === this.activatedRoute.snapshot.params.name) {
+            this.obj = e
+          }
+
+
+        })
+        // console.log(this.activatedRoute)
+
         // this.userProducts.forEach(e => {
         //   if (e.subcategory != null && e.subcategory.path === name){
         //     this.header = e.subcategory.path;
