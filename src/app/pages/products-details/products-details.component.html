@@ -29,13 +29,13 @@
         <div class="mobileNotShow">
           <span class="text-capitalize"><h5>Воу! Вартість знизилась:</h5></span>
           <div>
-            <span class="mx-1">{{ obj?.price * 1.25 / 29}} $ ></span>
-            <span class="mx-1">{{ obj?.price * 1.25 }} UAH</span>
+            <span class="mx-1 fw-light">{{ obj?.price * 1.25 / 29 | number : '1.0-0'}} $ -</span>
+            <span class="mx-1 fw-light">{{ obj?.price * 1.25 | number : '1.0-0' }} UAH</span>
           </div>
         </div>
         <div class="cur">
-          <span class="mx-1 fw-light fs-3">{{ obj?.price }} UAH ></span>
-          <span class="mx-1 fw-light fs-6">{{ obj?.price / 29}} $</span>
+          <span class="mx-1 fs-6">{{ obj?.price / 29 | number : '1.0-0'}} $ -</span>
+          <span class="mx-1 fs-3">{{ obj?.price | number : '1.0-0' }} UAH</span>
         </div>
       </div>
       <hr>

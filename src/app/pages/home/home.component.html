@@ -1,8 +1,8 @@
 <div class="container-sm">
   <div id="carouselDark" class="carousel carousel-dark slide mt-3" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="0" class="active"
-              aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
@@ -23,7 +23,8 @@
       </div>
       <div class="carousel-item">
         <div class="cardContainer">
-          <a [routerLink]="[ '/menu/smartphones/' ]" routerLinkActive="active"><img src="/./assets/img/123_11_29_1.jpg" class="carouselPhoto" alt="...">
+          <a [routerLink]="[ '/menu/smartphones/' ]" routerLinkActive="active"><img src="/./assets/img/123_11_29_1.jpg"
+              class="carouselPhoto" alt="...">
           </a>
         </div>
       </div>
@@ -43,7 +44,8 @@
 
 <ul class="nav nav-tabs headCont" id="myTab" role="tablist">
   <li class="nav-item" role="presentation" *ngFor="let c of userCategories">
-    <button class="nav-link" id="{{ c.name }}" (click)="add(c.name)" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{ c.name }}
+    <button class="nav-link" id="{{ c.name }}" (click)="add(c.name)" data-bs-toggle="tab" data-bs-target="#home"
+      type="button" role="tab" aria-controls="home" aria-selected="true">{{ c.name }}
     </button>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -52,39 +54,37 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="cardContainer">
-            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 0 : 3" >
-              <img [src]="p.imagePath" class="cardImage" alt="...">
-              <div class="card-body cardBody">
-                <h5 class="card-title">{{ p.name }}</h5>
-                <p class="card-title">{{ p.price }} <span>UAH</span> </p>
-                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
-                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
-                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
-              </div>
+            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 0 : 3">
+              <a [routerLink]="['menu/', p.path, p.id]">
+                <img [src]="p.imagePath" class="cardImage" alt="...">
+              </a>
+                <div class="card-body cardBody">
+                  <h5 class="card-title">{{ p.name }}</h5>
+                  <p class="card-title">{{ p.price }} <span>UAH</span> </p>
+                  <a class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
+                </div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
-          <div class="cardContainer" >
+          <div class="cardContainer">
             <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 3 : 6">
-              <img [src]="p.imagePath" class="cardImage" alt="...">
+              <a [routerLink]="['menu/', p.path, p.id]">
+                <img [src]="p.imagePath" class="cardImage" alt="...">
+              </a>
               <div class="card-body cardBody">
                 <h5 class="card-title">{{ p.name }}</h5>
                 <p class="card-title">{{ p.price }} <span>UAH</span> </p>
-                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
-                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
-                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
+                <a class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
               </div>
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#topSales"
-                data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#topSales" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#topSales"
-                data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#topSales" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -93,40 +93,38 @@
     <div id="topSales2" class="carousel slide background mx-5 mt-3" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <div class="cardContainer" >
-            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 6 : 9" >
-              <img [src]="p.imagePath" class="cardImage" alt="...">
+          <div class="cardContainer">
+            <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 6 : 9">
+              <a [routerLink]="['menu/', p.path, p.id]">
+                <img [src]="p.imagePath" class="cardImage" alt="...">
+              </a>
               <div class="card-body cardBody">
                 <h5 class="card-title">{{ p.name }} </h5>
                 <p class="card-title">{{ p.price }} <span>UAH</span> </p>
-                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
-                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
-                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
+                <a class="btn btn-sm btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
               </div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
-          <div class="cardContainer" >
+          <div class="cardContainer">
             <div class="card my-5" style="width: 18rem;" *ngFor="let p of btname | slice : 9 : 12">
-              <img [src]="p.imagePath" class="cardImage" alt="...">
+              <a [routerLink]="['menu/', p.path, p.id]">
+                <img [src]="p.imagePath" class="cardImage" alt="...">
+              </a>
               <div class="card-body cardBody">
                 <h5 class="card-title">{{ p.name }}</h5>
                 <p class="card-title">{{ p.price }} <span>UAH</span> </p>
-                <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
-                <a  class="btn btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
-                <a  class="btn btn-dark" [routerLink]="['menu/', p.path, p.id]">Детальніше</a>
+                <a class="btn btn-sm btn-dark to-basket" (click)="addToBasket(p)">В кошик</a>
               </div>
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#topSales2"
-                data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#topSales2" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#topSales2"
-                data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#topSales2" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -138,17 +136,17 @@
 
 <div class="container-sm mt-5">
   <div class="mobilePromotion">
-    <a  [routerLink]= "[ '/menu/audio']" routerLinkActive="active">
+    <a [routerLink]="[ '/menu/audio']" routerLinkActive="active">
       <div class="promoBlock">
         <img src="../../../assets/img/promotion-2.jpg" class="effect" alt="...">
       </div>
     </a>
-    <a  [routerLink]= "[ '/menu/tablets']" routerLinkActive="active">
+    <a [routerLink]="[ '/menu/tablets']" routerLinkActive="active">
       <div class="promoBlock">
         <img src="../../../assets/img/promotion-3.jpg" class="effect" alt="...">
       </div>
     </a>
-    <a  [routerLink]= "[ '/menu/computers']" routerLinkActive="active">
+    <a [routerLink]="[ '/menu/computers']" routerLinkActive="active">
       <div class="promoBlock">
         <img src="../../../assets/img/promotion-4.jpg" class="effect" alt="...">
       </div>
@@ -168,15 +166,14 @@
         <h5 class="card-title">Xiaomi відмінила покращену MIUI 12.5</h5>
         <p>Для бестселлера Poco F1 і Xiaomi Mi A3</p>
         <a href="https://www.ixbt.com/news/2021/11/16/redmi-xiaomi-miui-12-5-poco-f1-xiaomi-mi-a3.html"
-           class="card-link link-info effectPhoto">Читати</a>
+          class="card-link link-info effectPhoto">Читати</a>
       </div>
     </div>
     <div class=".col-6 col-sm-3 card cardStyle" style="width: 18rem;">
       <div class="card-body">
         <img src="./assets/img/xiaomiNews1.jpg" class="w-100 effectPhoto" alt="">
         <h5 class="card-title">Xiaomi 12 з новим дизайном поступив в виробництво</h5>
-        <a
-          href="https://www.ixbt.com/news/2021/11/18/xiaomi-12-s-sovershenno-novym-dizajnom-zapushen-v-massovoe-proizvodstvo.html"
+        <a href="https://www.ixbt.com/news/2021/11/18/xiaomi-12-s-sovershenno-novym-dizajnom-zapushen-v-massovoe-proizvodstvo.html"
           class="card-link link-info effectPhoto">Читати</a>
       </div>
     </div>
@@ -185,7 +182,7 @@
         <img src="./assets/img/news%23.jpg" class="w-100 effectPhoto" alt="">
         <h5 class="card-title">Xiaomi заснувала другу автомобільну компанію</h5>
         <a href="https://www.ixbt.com/news/2021/11/19/xiaomi-osnovala-vtoruju-avtomobilnuju-kompaniju.html"
-           class="card-link link-info effectPhoto">Читати</a>
+          class="card-link link-info effectPhoto">Читати</a>
       </div>
     </div>
     <div class="col-6 col-sm-3 card cardStyle" style="width: 18rem;">
@@ -193,7 +190,7 @@
         <img src="./assets/img/news4.jpg" class="w-100 effectPhoto" alt="">
         <h5 class="card-title">50 + 48 + 48 + 48 Мп. Подробности о камерах</h5>
         <a href="https://www.ixbt.com/news/2021/11/16/50-48-48-48-xiaomi-12-ultra-xiaomi-12-ultra-enhanced-edition.html"
-           class="card-link link-info effectPhoto">Читати</a>
+          class="card-link link-info effectPhoto">Читати</a>
       </div>
     </div>
   </div>
@@ -254,7 +251,3 @@
     безпеки. Більше жодних турбот, адже команда Ябко тримає все під контролем.
   </p>
 </section>
-
-
-
-

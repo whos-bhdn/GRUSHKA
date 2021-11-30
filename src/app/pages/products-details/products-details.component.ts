@@ -18,6 +18,7 @@ export class ProductsDetailsComponent implements OnInit {
   public  obj!: any
   public header!: string;
   public name!: string;
+  public priceDol!: number
 
   constructor(
     private categoryService: CategoryService,
@@ -38,6 +39,8 @@ export class ProductsDetailsComponent implements OnInit {
         this.userProducts.filter(e=>{
           if( e.id === this.activatedRoute.snapshot.params.name) {
             this.obj = e
+            let priceDol = Math.round(this.obj.price * 1.25);
+            let priceUAH = Math.round(this.obj.price * 1.25 / 29);
           }
 
 

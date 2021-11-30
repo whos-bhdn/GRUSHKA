@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {doc, docData, Firestore} from "@angular/fire/firestore";
 import {Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, user} from "@angular/fire/auth";
 import {Subscription} from "rxjs";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -25,6 +26,7 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private fb: FormBuilder,
     private afs: Firestore,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -63,9 +65,7 @@ export class ProfileComponent implements OnInit {
   confirmInfo(): void{
     const user = this.infoForm.value;
     localStorage.setItem('user', JSON.stringify(user));
-    // this.toastr.success("Дані успішно обновлено");
-
-    // console.log(this.infoForm.controls)
+    this.toastr.success("Дані успішно обновлено");
   }
 
   dismissInfo(): void{
