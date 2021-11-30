@@ -83,7 +83,7 @@ export class BasketComponent implements OnInit {
       this.basket.splice(index, 1);
       localStorage.setItem('basket', JSON.stringify(this.basket));
       this.orderService.changeBasket.next(true)
-      this.toastr.info("Basket is empty")
+      this.toastr.error("Product is deleted successfully");
     }
   }
 
