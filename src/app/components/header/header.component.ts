@@ -7,6 +7,7 @@ import { IProductResponse } from 'src/app/shared/interfaces/product/product.inta
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import {user} from "@angular/fire/auth";
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -28,6 +29,8 @@ export class HeaderComponent implements OnInit {
     private subcategoryService: SubcategoryService,
     private orderService: OrderService,
     private auth: AuthService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
   }
 

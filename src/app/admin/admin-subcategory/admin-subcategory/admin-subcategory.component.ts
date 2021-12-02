@@ -66,8 +66,8 @@ export class AdminSubcategoryComponent implements OnInit {
       })
     } else {
       this.subcategoryService.createFB(this.subCategoryForm.value).then(() => {
-        this.loadSubCategory();
         this.initSubCategoryForm();
+        this.loadSubCategory();
         this.isUploaded = false;
         this.isUploaded2 = false;
       }).catch(err => {
