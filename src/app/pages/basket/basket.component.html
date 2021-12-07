@@ -50,11 +50,11 @@
             <span>{{ b.name }}</span>
           </td>
           <td>
-            <span class="d-flex">
-              <button type="button" class="btn btn-light" (click)="changeCount(b, false)">-</button>
-              <input type="text" style="width:50px" readonly [value]="b.count">
-              <button type="button" class="btn btn-light" (click)="changeCount(b, true)">+</button>
-            </span>
+            <span class="my-1">
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="changeCount(b, false)">-</button>
+              <input class="priceValue"type="text" readonly [value]="b.count">
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="changeCount(b, true)">+</button>
+              </span>
           </td>
           <td>
             <div class="price">
