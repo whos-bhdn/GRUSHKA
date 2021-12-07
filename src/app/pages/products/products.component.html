@@ -13,10 +13,10 @@
             <p class="card-text">{{ p.description | slice : 0 : 50}}</p>
             <div class="price">
               <h4>{{ p.price * p.count }} <span>грн</span></h4>
-              <span>
-              <button type="button" class="btn btn-light" (click)="changeCount(p, false)">-</button>
-              <input type="text" readonly [value]="p.count" style="width: 30px">
-              <button type="button" class="btn btn-light" (click)="changeCount(p, true)">+</button>
+              <span class="my-1">
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="changeCount(p, false)">-</button>
+              <input class="priceValue"type="text" readonly [value]="p.count">
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="changeCount(p, true)">+</button>
               </span>
             </div>
             <div class="buttonsP">

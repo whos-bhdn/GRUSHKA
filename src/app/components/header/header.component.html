@@ -9,11 +9,11 @@
       <button class="navbar-toggler position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-around responsiveUl" id="navbarNav" >
+      <div class="collapse navbar-collapse justify-content-around responsiveUl" id="navbarNav" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <ul class="navbar-nav ulStyle">
-          <li class="nav-item dropdown" *ngFor="let category of userCategories">
-            <a class="nav-link " [routerLink]= "[ '/menu/'+(category.path)]" routerLinkActive="active">{{ category.name }}</a>
-            <div class="dropdown-content"*ngIf="category.path === 'accessories'">
+          <li class="nav-item dropdown"  *ngFor="let category of userCategories">
+            <a class="nav-link" [routerLink]= "[ '/menu/'+(category.path)]" routerLinkActive="active">{{ category.name }}</a>
+            <div class="dropdown-content" *ngIf="category.path === 'accessories'">
               <a [routerLink]= "[ '/menu/'+(subcategory.path) ]" routerLinkActive="active"  *ngFor="let subcategory of userSubCategories"> {{ subcategory.name }} </a>
             </div>
           </li>

@@ -35,22 +35,25 @@ export class ProfileComponent implements OnInit {
 
   initInfoForm(): void {
     this.infoForm = this.fb.group({
-      firstname: [null,
+      firstname: [
+        null,
         [
           Validators.required,
-          Validators.pattern('([A-Z][a-z]*)([\\s\\\'-][A-Z][a-z]*)*')
+          Validators.pattern(/^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*$/)
         ]
       ],
-      lastname: [null,
+      lastname: [
+        null,
         [
           Validators.required,
-          Validators.pattern('([A-Z][a-z]*)([\\s\\\'-][A-Z][a-z]*)*')
+          Validators.pattern(/^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*$/)
         ]
       ],
-      phone: [null,
+      phone: [
+        null,
         [
           Validators.required,
-          Validators.pattern(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/)
+          Validators.pattern(/^[0-9\-\+]{9,15}$/)
         ]
       ],
       address: [
@@ -63,9 +66,21 @@ export class ProfileComponent implements OnInit {
   }
 
   confirmInfo(): void{
-    const user = this.infoForm.value;
-    localStorage.setItem('user', JSON.stringify(user));
-    this.toastr.success("Дані успішно обновлено");
+   if (this.infoForm.valid){
+     const user = this.infoForm.value;
+     localStorage.setItem('user', JSON.stringify(user));
+     this.toastr.success("Дані успішно обновлено");
+   } else if(this.infoForm.get('firstname')?.invalid){
+     this.toastr.error("Ім'я вказано невірно")
+   } else if(this.infoForm.get('lastname')?.invalid){
+     this.toastr.error("Прізвище вказано невірно")
+   }
+   else if(this.infoForm.get('phone')?.invalid){
+     this.toastr.error("Номер вказано невірно")
+   }
+   else if(this.infoForm.get('address')?.invalid){
+     this.toastr.error("Адрес вказано невірно")
+   }
   }
 
   dismissInfo(): void{

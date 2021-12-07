@@ -1,6 +1,5 @@
-<div class="container-sm">
-  <div class="d-flex mx-5">
-    <div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+<div class="containerA">
+    <div class="nav nav-pills mobilePills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <button class="nav-link" type="button" [routerLink]="[ 'admin-category' ]" routerLinkActive="active">Категорія
       </button>
       <button class="nav-link" type="button" [routerLink]="[ 'admin-subcategory' ]" routerLinkActive="active">Підкатегорія
@@ -13,10 +12,9 @@
       <button class="btn btn-outline-danger" type="button" (click)="signOut()">Вийти</button>
     </div>
     <div class="col-10">
-      <div class="tab-content w-100 ">
+      <div class="tab-content contentAdmin">
         <router-outlet></router-outlet>
       </div>
     </div>
-  </div>
 </div>
 

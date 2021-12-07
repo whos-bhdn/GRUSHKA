@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CategoryService} from 'src/app/shared/services/category/category.service';
 import {ICategoryResponse} from "../../shared/interfaces/category/category.interface";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
@@ -11,12 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdminCategoryComponent implements OnInit {
 
+  @ViewChild('close') close!: ElementRef;
+
   public adminCategories: Array<ICategoryResponse> = []
   public editStatus = false;
   public categoryForm!: FormGroup;
   public currentCategoryID !: number | string;
-  public isUploaded = false;
-  public isUploaded2 = false;
+  public showModal = false;
 
   constructor(
     private categoryService: CategoryService,
@@ -37,6 +38,7 @@ export class AdminCategoryComponent implements OnInit {
     })
   }
 
+
   loadCategory(): void {
     this.categoryService.getAllFB().subscribe(data => {
         this.adminCategories = data as ICategoryResponse[];
@@ -52,8 +54,7 @@ export class AdminCategoryComponent implements OnInit {
         this.loadCategory();
         this.editStatus = false;
         this.initCategoryForm();
-        this.isUploaded = false;
-        this.isUploaded2 = false;
+        this.close.nativeElement.click();
         this.toastr.success('Category successfully updated!');
       }).catch(err => {
         this.toastr.error(err.message);
@@ -62,8 +63,7 @@ export class AdminCategoryComponent implements OnInit {
       this.categoryService.createFB(this.categoryForm.value).then(() => {
         this.loadCategory();
         this.initCategoryForm();
-        this.isUploaded = false;
-        this.isUploaded2 = false
+        this.close.nativeElement.click();
         this.toastr.success('Category successfully created!');
       }).catch(err => {
         this.toastr.error(err.message);
@@ -87,8 +87,6 @@ export class AdminCategoryComponent implements OnInit {
     });
     this.currentCategoryID = category.id;
     this.editStatus = true;
-    this.isUploaded = true;
-    this.isUploaded2 = true;
   }
 
   valueByControl(control: string): string {

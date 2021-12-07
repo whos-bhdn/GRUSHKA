@@ -6,6 +6,11 @@
   align-items: flex-start;
 }
 
+
+.footerColumnMobile {
+  display: none;
+}
+
 @media screen and(max-width: 1440px) {
   .navBarContainer{
     max-width: 100%
@@ -28,6 +33,14 @@
     margin-bottom: 25px;
   }
 
+  .containerA{
+    display: flex;
+    flex-direction: column
+  }
+
+  .mobilePills{
+  }
+
 }
 
 @media screen and (max-width: 1279px){
@@ -44,6 +57,7 @@
   #myTabContent {
     display: none;
   }
+
 
 }
 
@@ -97,19 +111,20 @@
     align-items: center;
   }
 
+  .footerColumnMobile {
+    display: block;
+  }
+  .footContainer{
+    margin: 25px;
+  }
+
+
 }
 
 
 @media screen and (max-width: 480px) {
   .container-md {
     width: 100%;
-  }
-  .footerCol {
-    display: none;
-  }
-
-  .footerColumnMobile {
-    display: block;
   }
 
   .containerP {
@@ -135,6 +150,7 @@
   .gradient{
     border-radius: 15px;
   }
+
 
 }
 
@@ -255,7 +271,13 @@ h4, h3, h2{
   border-radius: 15px 50px 30px 5px;
   animation: movingGradient 5s linear infinite alternate;
 }
-
+.priceValue{
+  width: 30px;
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  margin: 2px;
+}
 
 
 

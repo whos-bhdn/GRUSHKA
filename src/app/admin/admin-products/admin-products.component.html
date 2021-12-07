@@ -109,13 +109,13 @@
           </ng-container>
           <ng-container *ngIf="isUploaded">
             <img [src]="valueByControl('imagePath')" alt="" width="120px">
-            <i class="uil uil-trash-alt" (click)="deleteImage()"></i>
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteImage()">Delete</button>
           </ng-container>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" #close>Close</button>
-        <button type="submit" class="btn btn-primary" >Save</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!isUploaded">Save</button>
       </div>
     </form>
   </div>

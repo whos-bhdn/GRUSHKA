@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { SubcategoryService } from 'src/app/shared/services/subcategory/subcategory.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ICategoryResponse} from "../../../shared/interfaces/category/category.interface";
@@ -12,13 +12,13 @@ import { CategoryService } from 'src/app/shared/services/category/category.servi
 })
 export class AdminSubcategoryComponent implements OnInit {
 
+  @ViewChild('close') close!: ElementRef;
+
   public subCategoryForm!: FormGroup;
   public adminSubcategories: ISubCategory[] = [];
   public adminCategories: ICategoryResponse[] = [];
   public editStatus = false;
   public currentCategoryID !: number | string;
-  public isUploaded = false;
-  public isUploaded2 = false;
 
   constructor(private subcategoryService: SubcategoryService, private fb: FormBuilder, private categoryService: CategoryService) { }
 
@@ -59,8 +59,7 @@ export class AdminSubcategoryComponent implements OnInit {
         this.loadSubCategory();
         this.editStatus = false;
         this.initSubCategoryForm();
-        this.isUploaded = false;
-        this.isUploaded2 = false;
+        this.close.nativeElement.click();
       }).catch(err => {
         console.log(err);
       })
@@ -68,8 +67,7 @@ export class AdminSubcategoryComponent implements OnInit {
       this.subcategoryService.createFB(this.subCategoryForm.value).then(() => {
         this.initSubCategoryForm();
         this.loadSubCategory();
-        this.isUploaded = false;
-        this.isUploaded2 = false;
+        this.close.nativeElement.click();
       }).catch(err => {
         console.log(err)
       })
@@ -92,8 +90,6 @@ export class AdminSubcategoryComponent implements OnInit {
     });
     this.currentCategoryID = subcategory.id;
     this.editStatus = true;
-    this.isUploaded = true;
-    this.isUploaded2 = true;
   }
 
   changeCategory(): void {}

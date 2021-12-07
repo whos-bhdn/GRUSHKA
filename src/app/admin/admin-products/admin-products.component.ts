@@ -92,6 +92,7 @@ export class AdminProductsComponent implements OnInit {
         this.editStatus = false;
         this.initProductForm();
         this.isUploaded = false;
+        this.close.nativeElement.click();
       }).catch(err => {
         this.toastr.error(err.message);
       });
@@ -101,6 +102,7 @@ export class AdminProductsComponent implements OnInit {
         this.loadProducts();
         this.initProductForm();
         this.isUploaded = false;
+        this.close.nativeElement.click();
       }).catch(err => {
         this.toastr.error(err.message);
       });
